@@ -1,0 +1,684 @@
+import {
+  BriefcaseIcon,
+  CodeXmlIcon,
+  Gamepad2Icon,
+  GraduationCapIcon,
+  HeartPulseIcon,
+  HomeIcon,
+  SparklesIcon,
+  type LucideIcon,
+} from "lucide-react"
+
+export type Category = {
+  slug: string
+  name: string
+  description: string
+  icon: LucideIcon
+}
+
+export type Tool = {
+  slug: string
+  category: string
+  name: string
+  description: string
+  keywords: string[]
+  article?: string
+}
+
+export const categories: Category[] = [
+  {
+    slug: "health",
+    name: "健康",
+    description: "身体健康指数计算与查询工具",
+    icon: HeartPulseIcon,
+  },
+  {
+    slug: "office",
+    name: "办公助手",
+    description: "文本处理、符号查询等办公小工具",
+    icon: BriefcaseIcon,
+  },
+  {
+    slug: "code",
+    name: "程序员",
+    description: "开发者常用的编解码、加密与格式化工具",
+    icon: CodeXmlIcon,
+  },
+  {
+    slug: "generate",
+    name: "生成",
+    description: "随机数、密码、二维码等生成器",
+    icon: SparklesIcon,
+  },
+  {
+    slug: "study",
+    name: "学习",
+    description: "单位换算与数学计算器",
+    icon: GraduationCapIcon,
+  },
+  {
+    slug: "life",
+    name: "生活",
+    description: "生活查询与计算工具",
+    icon: HomeIcon,
+  },
+  {
+    slug: "ent",
+    name: "娱乐",
+    description: "趣味测试与小游戏",
+    icon: Gamepad2Icon,
+  },
+]
+
+export const tools: Tool[] = [
+  // ---------- 健康 ----------
+  {
+    slug: "bmi",
+    category: "health",
+    name: "BMI 指数计算",
+    description: "根据身高体重计算 BMI 身体质量指数",
+    keywords: ["BMI", "身体质量指数", "BMI计算器", "肥胖"],
+    article: `BMI 即身体质量指数（Body Mass Index），是国际上常用的衡量人体胖瘦程度和是否健康的标准。
+
+计算公式：BMI = 体重（千克）÷ 身高（米）²
+
+参考标准（中国成人）：偏瘦 ≤ 18.4；正常 18.5 ~ 23.9；过重 24.0 ~ 27.9；肥胖 ≥ 28.0。BMI 只是初步筛查指标，运动员、孕妇等人群应结合体脂率综合评估。`,
+  },
+  {
+    slug: "bmr",
+    category: "health",
+    name: "基础代谢率 (BMR) 计算器",
+    description: "Mifflin-St Jeor 公式估算每日基础热量消耗",
+    keywords: ["BMR", "基础代谢", "热量消耗"],
+  },
+  {
+    slug: "bfr",
+    category: "health",
+    name: "体脂率 (BFR) 计算器",
+    description: "BMI 估算法计算体脂率",
+    keywords: ["体脂率", "BFR", "脂肪"],
+  },
+  {
+    slug: "weight",
+    category: "health",
+    name: "标准体重计算器",
+    description: "Broca 公式计算标准体重及正常范围",
+    keywords: ["标准体重", "理想体重"],
+  },
+  {
+    slug: "burn-fat-heart-rate",
+    category: "health",
+    name: "燃脂心率计算器",
+    description: "按年龄计算最佳燃脂心率区间",
+    keywords: ["燃脂心率", "心率", "有氧运动"],
+  },
+  {
+    slug: "protein-intake",
+    category: "health",
+    name: "蛋白质摄入量计算器",
+    description: "按体重与运动强度计算每日蛋白质需求",
+    keywords: ["蛋白质", "健身", "营养"],
+  },
+  {
+    slug: "energy-convert",
+    category: "health",
+    name: "焦耳卡路里换算器",
+    description: "焦耳、千焦、卡路里、大卡、千瓦时互转",
+    keywords: ["焦耳", "卡路里", "热量换算"],
+  },
+  {
+    slug: "running-calorie",
+    category: "health",
+    name: "跑步卡路里消耗计算器",
+    description: "按体重和距离估算跑步消耗热量",
+    keywords: ["跑步", "卡路里", "热量消耗"],
+  },
+  {
+    slug: "best-figure",
+    category: "health",
+    name: "女性最佳身材计算器",
+    description: "按身高估算三围等身材参考数据",
+    keywords: ["身材", "三围"],
+  },
+  {
+    slug: "female-safe-period",
+    category: "health",
+    name: "女性安全期计算器",
+    description: "按月经周期推算排卵日与安全期",
+    keywords: ["安全期", "排卵期", "月经周期"],
+  },
+  {
+    slug: "child-height",
+    category: "health",
+    name: "孩子身高预测",
+    description: "根据父母身高预测孩子成年身高",
+    keywords: ["身高预测", "遗传身高"],
+  },
+  {
+    slug: "bood-type",
+    category: "health",
+    name: "血型遗传规律",
+    description: "根据父母血型推算子女可能的血型",
+    keywords: ["血型", "遗传", "ABO"],
+  },
+  {
+    slug: "vegetable-oil",
+    category: "health",
+    name: "植物油脂肪含量查询",
+    description: "常见食用油的脂肪含量与脂肪酸构成",
+    keywords: ["植物油", "脂肪", "食用油"],
+  },
+  // ---------- 办公助手 ----------
+  {
+    slug: "convert-case",
+    category: "office",
+    name: "转换大小写",
+    description: "大小写、驼峰、下划线等多种命名格式互转",
+    keywords: ["大小写", "camelCase", "snake_case"],
+  },
+  {
+    slug: "title-case-converter",
+    category: "office",
+    name: "标题大小写转换器",
+    description: "英文标题格式，虚词自动小写",
+    keywords: ["标题", "title case"],
+  },
+  {
+    slug: "sentence-case-converter",
+    category: "office",
+    name: "句子大小写转换器",
+    description: "句首字母自动大写",
+    keywords: ["句子", "sentence case"],
+  },
+  {
+    slug: "bold-text-generator",
+    category: "office",
+    name: "粗体文本生成器",
+    description: "生成 Unicode 粗体字符 𝐀𝐁𝐂",
+    keywords: ["粗体", "花样文字"],
+  },
+  {
+    slug: "italic-text-generator",
+    category: "office",
+    name: "斜体文本生成器",
+    description: "生成 Unicode 斜体字符 𝐴𝐵𝐶",
+    keywords: ["斜体", "花样文字"],
+  },
+  {
+    slug: "strikethrough-text-generator",
+    category: "office",
+    name: "删除线文本生成器",
+    description: "给文本添加删除线效果",
+    keywords: ["删除线"],
+  },
+  {
+    slug: "underline-text",
+    category: "office",
+    name: "下划线文本生成器",
+    description: "给文本添加下划线效果",
+    keywords: ["下划线"],
+  },
+  {
+    slug: "upside-down-text-generator",
+    category: "office",
+    name: "颠倒文本生成器",
+    description: "把文本翻转 180 度",
+    keywords: ["颠倒", "翻转文本"],
+  },
+  {
+    slug: "mirror-text-generator",
+    category: "office",
+    name: "镜像文本生成器",
+    description: "生成左右镜像的文字",
+    keywords: ["镜像", "文字"],
+  },
+  {
+    slug: "reverse-text-generator",
+    category: "office",
+    name: "反向文本生成器",
+    description: "文本倒序输出",
+    keywords: ["倒序", "反向"],
+  },
+  {
+    slug: "replace-text",
+    category: "office",
+    name: "文本替换工具",
+    description: "批量查找替换，支持正则表达式",
+    keywords: ["替换", "查找", "正则"],
+  },
+  {
+    slug: "emoji",
+    category: "office",
+    name: "Emoji 表情大全",
+    description: "常用 Emoji 表情，点击即复制",
+    keywords: ["emoji", "表情"],
+  },
+  {
+    slug: "emoticon",
+    category: "office",
+    name: "颜文字表情符号",
+    description: "各种颜文字，点击即复制",
+    keywords: ["颜文字", "表情"],
+  },
+  {
+    slug: "symbols",
+    category: "office",
+    name: "符号大全",
+    description: "数学、箭头、货币等 special 符号，点击复制",
+    keywords: ["符号", "特殊字符"],
+  },
+  {
+    slug: "paper-size",
+    category: "office",
+    name: "纸张尺寸查询",
+    description: "A4 等各种纸张规格尺寸对照",
+    keywords: ["纸张尺寸", "A4", "开本"],
+  },
+  // ---------- 程序员 ----------
+  {
+    slug: "timestamp",
+    category: "code",
+    name: "时间戳转换",
+    description: "Unix 时间戳与日期时间相互转换",
+    keywords: ["时间戳", "timestamp", "unix时间"],
+    article: `Unix 时间戳是从 1970 年 1 月 1 日（UTC）起经过的秒数（或毫秒数），是程序中最常用的统一时间表示方式。
+
+本工具支持秒级与毫秒级时间戳，可双向转换，并可查看当前实时时间戳。`,
+  },
+  {
+    slug: "base64",
+    category: "code",
+    name: "Base64 编码解码",
+    description: "文本的 Base64 编码与解码，支持中文",
+    keywords: ["Base64", "编码", "解码"],
+    article: `Base64 是一种基于 64 个可打印字符表示二进制数据的编码方式。本工具在浏览器本地完成编解码，正确处理 UTF-8 中文，数据不上传。`,
+  },
+  {
+    slug: "base-converter",
+    category: "code",
+    name: "进制转换",
+    description: "二、八、十、十六进制实时互转",
+    keywords: ["进制转换", "二进制", "十六进制"],
+  },
+  {
+    slug: "md5-encrypt",
+    category: "code",
+    name: "MD5 加密",
+    description: "计算文本的 MD5 哈希值",
+    keywords: ["MD5", "哈希"],
+  },
+  {
+    slug: "sha-encrypt",
+    category: "code",
+    name: "SHA 加密",
+    description: "SHA-1 / SHA-256 / SHA-512 等哈希计算",
+    keywords: ["SHA", "哈希", "SHA256"],
+  },
+  {
+    slug: "ripemd160-encrypt",
+    category: "code",
+    name: "RIPEMD160 哈希",
+    description: "计算文本的 RIPEMD-160 哈希值",
+    keywords: ["RIPEMD160", "哈希"],
+  },
+  {
+    slug: "hmac-encrypt",
+    category: "code",
+    name: "HMAC 哈希加密",
+    description: "基于密钥的 HMAC 消息认证码计算",
+    keywords: ["HMAC", "哈希", "密钥"],
+  },
+  {
+    slug: "aes-encrypt",
+    category: "code",
+    name: "AES 加密 / 解密",
+    description: "AES 对称加密与解密",
+    keywords: ["AES", "加密", "解密"],
+  },
+  {
+    slug: "des-encrypt",
+    category: "code",
+    name: "DES 加密 / 解密",
+    description: "DES 对称加密与解密",
+    keywords: ["DES", "加密", "解密"],
+  },
+  {
+    slug: "rabbit-encrypt",
+    category: "code",
+    name: "Rabbit 加密 / 解密",
+    description: "Rabbit 流加密与解密",
+    keywords: ["Rabbit", "加密"],
+  },
+  {
+    slug: "rc4-encrypt",
+    category: "code",
+    name: "RC4 加密 / 解密",
+    description: "RC4 流加密与解密",
+    keywords: ["RC4", "加密"],
+  },
+  {
+    slug: "image-to-base64",
+    category: "code",
+    name: "图片转 Base64",
+    description: "本地图片转 Base64 Data URL",
+    keywords: ["图片", "base64", "data url"],
+  },
+  {
+    slug: "url-encoder-decoder",
+    category: "code",
+    name: "URL 编码解码",
+    description: "URL 参数 encodeURIComponent 编解码",
+    keywords: ["URL", "编码", "解码"],
+  },
+  {
+    slug: "text-to-ascii-converter",
+    category: "code",
+    name: "文本与 ASCII 转换器",
+    description: "字符与 ASCII 码相互转换",
+    keywords: ["ASCII", "字符编码"],
+  },
+  {
+    slug: "unicode-encoder-decoder",
+    category: "code",
+    name: "Unicode 编码解码",
+    description: "文本与 \\uXXXX 转义序列互转",
+    keywords: ["Unicode", "编码"],
+  },
+  {
+    slug: "compare-text",
+    category: "code",
+    name: "文本对比工具",
+    description: "两段文本逐行 diff 对比",
+    keywords: ["对比", "diff", "文本比较"],
+  },
+  {
+    slug: "format-html",
+    category: "code",
+    name: "HTML 格式化 / 压缩",
+    description: "HTML 代码美化与压缩",
+    keywords: ["HTML", "格式化", "压缩"],
+  },
+  {
+    slug: "format-css",
+    category: "code",
+    name: "CSS 格式化 / 压缩",
+    description: "CSS 代码美化与压缩",
+    keywords: ["CSS", "格式化", "压缩"],
+  },
+  {
+    slug: "format-js",
+    category: "code",
+    name: "JS 格式化 / 压缩",
+    description: "JavaScript 代码美化与压缩",
+    keywords: ["JavaScript", "格式化", "压缩"],
+  },
+  // ---------- 生成 ----------
+  {
+    slug: "random-password",
+    category: "generate",
+    name: "随机密码生成器",
+    description: "按规则生成高强度随机密码",
+    keywords: ["随机密码", "密码生成器", "强密码"],
+    article: `强密码应足够长（建议 16 位以上）并混合大小写字母、数字与符号。本工具使用 crypto.getRandomValues 在本地生成密码，可安全用于真实账号。`,
+  },
+  {
+    slug: "random-number",
+    category: "generate",
+    name: "随机数生成器",
+    description: "指定范围随机整数，支持去重与排序",
+    keywords: ["随机数", "随机整数"],
+  },
+  {
+    slug: "serial-number",
+    category: "generate",
+    name: "序列号生成器",
+    description: "按前缀 + 序号 + 后缀批量生成序列号",
+    keywords: ["序列号", "编号"],
+  },
+  {
+    slug: "qrcode",
+    category: "generate",
+    name: "二维码生成器",
+    description: "文本/链接生成二维码，可下载 PNG",
+    keywords: ["二维码", "QR Code"],
+  },
+  {
+    slug: "bar-code",
+    category: "generate",
+    name: "条形码生成器",
+    description: "CODE128、EAN-13 等条形码生成",
+    keywords: ["条形码", "barcode"],
+  },
+  // ---------- 学习 ----------
+  {
+    slug: "length-converter",
+    category: "study",
+    name: "长度单位转换器",
+    description: "公制、英制、市制长度单位互转",
+    keywords: ["长度", "单位换算"],
+  },
+  {
+    slug: "area-converter",
+    category: "study",
+    name: "面积单位转换器",
+    description: "平方米、亩、公顷、英亩等互转",
+    keywords: ["面积", "单位换算"],
+  },
+  {
+    slug: "volume-converter",
+    category: "study",
+    name: "体积单位转换器",
+    description: "升、毫升、立方米、加仑等互转",
+    keywords: ["体积", "容积", "单位换算"],
+  },
+  {
+    slug: "weight-converter",
+    category: "study",
+    name: "重量转换器",
+    description: "千克、斤、磅、盎司等互转",
+    keywords: ["重量", "质量", "单位换算"],
+  },
+  {
+    slug: "temperature-converter",
+    category: "study",
+    name: "温度转换器",
+    description: "摄氏、华氏、开尔文互转",
+    keywords: ["温度", "华氏度", "摄氏度"],
+  },
+  {
+    slug: "proportion-calculator",
+    category: "study",
+    name: "比例计算器",
+    description: "a:b = c:d 求解未知项",
+    keywords: ["比例", "比值"],
+  },
+  {
+    slug: "perimeter-calculator",
+    category: "study",
+    name: "周长计算器",
+    description: "常见平面图形周长计算",
+    keywords: ["周长", "几何"],
+  },
+  {
+    slug: "area-calculator",
+    category: "study",
+    name: "面积计算器",
+    description: "常见平面图形面积计算",
+    keywords: ["面积", "几何"],
+  },
+  {
+    slug: "surface-area-calculator",
+    category: "study",
+    name: "表面积计算器",
+    description: "常见立体图形表面积计算",
+    keywords: ["表面积", "几何"],
+  },
+  {
+    slug: "volume-calculator",
+    category: "study",
+    name: "体积计算器",
+    description: "常见立体图形体积计算",
+    keywords: ["体积", "几何"],
+  },
+  {
+    slug: "pi-query",
+    category: "study",
+    name: "圆周率查询",
+    description: "π 千位数值查询与数字串定位",
+    keywords: ["圆周率", "π", "pi"],
+  },
+  // ---------- 生活 ----------
+  {
+    slug: "age",
+    category: "life",
+    name: "年龄计算器",
+    description: "精确计算周岁、天数与生日倒计时",
+    keywords: ["年龄", "周岁"],
+  },
+  {
+    slug: "retirement-time-query",
+    category: "life",
+    name: "退休年龄查询",
+    description: "按渐进式延迟退休政策估算退休时间",
+    keywords: ["退休", "延迟退休", "退休年龄"],
+  },
+  {
+    slug: "loan-calculator",
+    category: "life",
+    name: "贷款计算器",
+    description: "等额本息与等额本金还款对比",
+    keywords: ["贷款", "房贷", "月供"],
+  },
+  {
+    slug: "capital",
+    category: "life",
+    name: "世界各国首都",
+    description: "世界各国首都查询",
+    keywords: ["首都", "国家"],
+  },
+  {
+    slug: "flag",
+    category: "life",
+    name: "世界各国国旗",
+    description: "各国国旗图案与代码查询",
+    keywords: ["国旗", "国家"],
+  },
+  {
+    slug: "bra-size",
+    category: "life",
+    name: "文胸尺码查询",
+    description: "下胸围与罩杯尺码对照",
+    keywords: ["文胸", "尺码"],
+  },
+  {
+    slug: "underwear-size",
+    category: "life",
+    name: "内裤尺码查询",
+    description: "腰围臀围对应尺码表",
+    keywords: ["内裤", "尺码"],
+  },
+  {
+    slug: "woman-clothing-size",
+    category: "life",
+    name: "女装尺码查询",
+    description: "女装号型尺码对照表",
+    keywords: ["女装", "尺码"],
+  },
+  {
+    slug: "woman-shirt-size",
+    category: "life",
+    name: "女士衬衫尺码查询",
+    description: "女士衬衫领围尺码对照",
+    keywords: ["衬衫", "女装", "尺码"],
+  },
+  {
+    slug: "dress-size",
+    category: "life",
+    name: "连衣裙尺码查询",
+    description: "连衣裙三围尺码对照",
+    keywords: ["连衣裙", "尺码"],
+  },
+  {
+    slug: "child-clothe-size",
+    category: "life",
+    name: "童装尺码查询",
+    description: "儿童身高对应服装尺码",
+    keywords: ["童装", "尺码"],
+  },
+  {
+    slug: "man-clothing-size",
+    category: "life",
+    name: "男装尺码查询",
+    description: "男装号型尺码对照表",
+    keywords: ["男装", "尺码"],
+  },
+  {
+    slug: "man-pant-size",
+    category: "life",
+    name: "男士裤子尺码查询",
+    description: "腰围对应裤装尺码",
+    keywords: ["裤子", "男装", "尺码"],
+  },
+  // ---------- 娱乐 ----------
+  {
+    slug: "morse-code-translator",
+    category: "ent",
+    name: "摩斯密码翻译器",
+    description: "摩斯密码编解码与音频播放",
+    keywords: ["摩斯密码", "morse"],
+  },
+  {
+    slug: "lottery",
+    category: "ent",
+    name: "在线抽奖工具",
+    description: "名单随机抽奖，带滚动动画",
+    keywords: ["抽奖", "随机"],
+  },
+  {
+    slug: "worth",
+    category: "ent",
+    name: "身价计算器",
+    description: "趣味身价估算，仅供娱乐",
+    keywords: ["身价", "娱乐"],
+  },
+  {
+    slug: "death-time",
+    category: "ent",
+    name: "死亡时间计算器",
+    description: "趣味人生进度条，珍惜当下",
+    keywords: ["生命", "倒计时", "娱乐"],
+  },
+  {
+    slug: "lucky-number",
+    category: "ent",
+    name: "幸运数字计算器",
+    description: "根据姓名和生日生成幸运数字",
+    keywords: ["幸运数字", "娱乐"],
+  },
+  {
+    slug: "lucky-color",
+    category: "ent",
+    name: "星座幸运色",
+    description: "十二星座幸运色查询",
+    keywords: ["星座", "幸运色"],
+  },
+  {
+    slug: "hash-avatar",
+    category: "ent",
+    name: "哈希头像生成器",
+    description: "文本生成确定性几何头像",
+    keywords: ["头像", "identicon"],
+  },
+]
+
+export function getCategory(slug: string) {
+  return categories.find((c) => c.slug === slug)
+}
+
+export function getTool(categorySlug: string, toolSlug: string) {
+  return tools.find((t) => t.category === categorySlug && t.slug === toolSlug)
+}
+
+export function getToolsByCategory(categorySlug: string) {
+  return tools.filter((t) => t.category === categorySlug)
+}
