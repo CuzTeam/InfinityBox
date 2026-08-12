@@ -42,6 +42,7 @@ import {
   LuckyNumber,
   WorthCalculator,
 } from "@/components/tools/entertainment"
+import { FlagGallery } from "@/components/tools/flag-gallery"
 import {
   RandomNumberGenerator,
   SerialNumberGenerator,
@@ -71,7 +72,6 @@ import {
   capitalData,
   childClotheSizeData,
   dressSizeData,
-  flagData,
   manClothingSizeData,
   manPantSizeData,
   paperSizeData,
@@ -214,7 +214,7 @@ export const toolComponents: Record<string, ComponentType> = {
   "life/retirement-time-query": RetirementTime,
   "life/loan-calculator": LoanCalculator,
   "life/capital": () => <DataTable data={capitalData} />,
-  "life/flag": () => <DataTable data={flagData} />,
+  "life/flag": () => <FlagGallery />,
   "life/bra-size": () => <DataTable data={braSizeData} />,
   "life/underwear-size": () => <DataTable data={underwearSizeData} />,
   "life/woman-clothing-size": () => <DataTable data={womanClothingSizeData} />,

@@ -159,30 +159,4 @@ export const capitalData: TableData = {
   ],
 }
 
-function flagEmoji(code: string) {
-  return String.fromCodePoint(
-    ...Array.from(code.toUpperCase()).map((c) => 0x1f1e6 + c.charCodeAt(0) - 65)
-  )
-}
 
-const flagCountries: [string, string][] = [
-  ["中国", "CN"], ["中国香港", "HK"], ["中国台湾", "TW"], ["中国澳门", "MO"],
-  ["日本", "JP"], ["韩国", "KR"], ["印度", "IN"], ["泰国", "TH"],
-  ["越南", "VN"], ["马来西亚", "MY"], ["新加坡", "SG"], ["印度尼西亚", "ID"],
-  ["菲律宾", "PH"], ["蒙古", "MN"], ["哈萨克斯坦", "KZ"], ["沙特阿拉伯", "SA"],
-  ["阿联酋", "AE"], ["土耳其", "TR"], ["以色列", "IL"], ["伊朗", "IR"],
-  ["英国", "GB"], ["法国", "FR"], ["德国", "DE"], ["意大利", "IT"],
-  ["西班牙", "ES"], ["葡萄牙", "PT"], ["荷兰", "NL"], ["比利时", "BE"],
-  ["瑞士", "CH"], ["奥地利", "AT"], ["瑞典", "SE"], ["挪威", "NO"],
-  ["丹麦", "DK"], ["芬兰", "FI"], ["波兰", "PL"], ["捷克", "CZ"],
-  ["希腊", "GR"], ["俄罗斯", "RU"], ["乌克兰", "UA"], ["埃及", "EG"],
-  ["南非", "ZA"], ["尼日利亚", "NG"], ["肯尼亚", "KE"], ["美国", "US"],
-  ["加拿大", "CA"], ["墨西哥", "MX"], ["巴西", "BR"], ["阿根廷", "AR"],
-  ["智利", "CL"], ["秘鲁", "PE"], ["哥伦比亚", "CO"], ["澳大利亚", "AU"],
-  ["新西兰", "NZ"],
-]
-
-export const flagData: TableData = {
-  columns: ["国家/地区", "国旗", "代码"],
-  rows: flagCountries.map(([name, code]) => [name, flagEmoji(code), code]),
-}
