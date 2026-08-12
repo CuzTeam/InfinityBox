@@ -1,6 +1,7 @@
 import { BoxesIcon } from "lucide-react"
 import Link from "next/link"
 
+import { HeaderActions } from "@/components/header-actions"
 import { ThemeToggle } from "@/components/theme-toggle"
 import {
   NavigationMenu,
@@ -53,7 +54,8 @@ export function SiteHeader() {
           </NavigationMenuList>
         </NavigationMenu>
 
-        <div className="ml-auto flex items-center gap-2">
+        <div className="ml-auto flex items-center gap-1">
+          <HeaderActions />
           <ThemeToggle />
         </div>
       </div>

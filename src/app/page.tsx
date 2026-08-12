@@ -1,8 +1,7 @@
 import Link from "next/link"
-import { ArrowRightIcon, FolderGit2Icon, ShieldCheckIcon, ZapIcon } from "lucide-react"
+import { ArrowRightIcon } from "lucide-react"
 
 import { ToolSearch } from "@/components/tool-search"
-import { Badge } from "@/components/ui/badge"
 import {
   Card,
   CardDescription,
@@ -11,34 +10,16 @@ import {
 } from "@/components/ui/card"
 import { categories, getToolsByCategory, tools } from "@/lib/tools"
 
-const highlights = [
-  { icon: ZapIcon, text: "纯浏览器本地运行，毫秒级响应" },
-  { icon: ShieldCheckIcon, text: "数据不上传，隐私安全" },
-  { icon: FolderGit2Icon, text: "完全开源，欢迎贡献" },
-]
-
 export default function Home() {
   return (
     <div className="flex flex-col">
       <section className="border-b bg-gradient-to-b from-muted/60 to-background">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-6 px-4 py-16 text-center sm:py-24">
-          <Badge variant="secondary">开源在线工具箱</Badge>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            InfinityBox
-          </h1>
-          <p className="max-w-xl text-lg text-muted-foreground">
-            无限工具，一盒搞定。{tools.length} 个免费在线工具，覆盖{" "}
-            {categories.length} 大分类，全部在你的浏览器本地运行。
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-6 px-4 py-16 text-center sm:py-20">
+          <h1 className="text-4xl font-bold tracking-tight">InfinityBox</h1>
+          <p className="text-muted-foreground">
+            无限工具，一盒搞定。{tools.length} 个免费在线工具。
           </p>
           <ToolSearch />
-          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-            {highlights.map((item) => (
-              <span key={item.text} className="flex items-center gap-1.5">
-                <item.icon className="size-4" />
-                {item.text}
-              </span>
-            ))}
-          </div>
         </div>
       </section>
 
