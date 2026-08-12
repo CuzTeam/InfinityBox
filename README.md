@@ -76,6 +76,11 @@ src/
 1. 在 `src/lib/tools/` 对应分类中注册（slug、名称、描述）
 2. 在 `src/components/tools/` 实现组件（复用 `engines/` 中的通用引擎）
 
+## 👀 参考网站
+
+- [JustHTML](https://github.com/sxxyrry/JustHTML)
+- [ToolOnline(闭源)](https://toolonline.net/)
+
 ## 🤝 参与贡献
 
 欢迎提交 Issue 和 PR！无论是新工具、交互优化还是 Bug 修复都非常感谢。

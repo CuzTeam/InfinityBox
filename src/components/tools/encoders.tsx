@@ -176,3 +176,55 @@ export function AsciiConverter() {
     />
   )
 }
+
+export function HexCodec() {
+  return (
+    <CodecCard
+      title="Hex 编码 / 解码"
+      encodeLabel="编码"
+      decodeLabel="解码"
+      encode={(t) =>
+        Array.from(new TextEncoder().encode(t))
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join(" ")
+      }
+      decode={(t) => {
+        const bytes = t
+          .trim()
+          .split(/[\s,]+/)
+          .map((h) => {
+            const n = parseInt(h, 16)
+            if (!/^[0-9a-fA-F]{1,2}$/.test(h) || Number.isNaN(n))
+              throw new Error("invalid hex")
+            return n
+          })
+        return new TextDecoder().decode(new Uint8Array(bytes))
+      }}
+    />
+  )
+}
+
+const HTML_ENTITIES: Record<string, string> = {
+  "&": "&amp;",
+  "<": "&lt;",
+  ">": "&gt;",
+  '"': "&quot;",
+  "'": "&#39;",
+}
+
+export function HtmlEntityCodec() {
+  return (
+    <CodecCard
+      title="HTML 实体编码 / 解码"
+      encodeLabel="编码"
+      decodeLabel="解码"
+      encode={(t) =>
+        t.replace(/[&<>"']/g, (c) => HTML_ENTITIES[c] ?? c)
+      }
+      decode={(t) => {
+        const doc = new DOMParser().parseFromString(t, "text/html")
+        return doc.documentElement.textContent ?? ""
+      }}
+    />
+  )
+}

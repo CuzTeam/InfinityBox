@@ -23,6 +23,12 @@ import {
   StandardWeight,
 } from "@/components/tools/calculators"
 import { CompareText } from "@/components/tools/compare-text"
+import {
+  JsonFormatter,
+  JwtDecoder,
+  RegexTester,
+} from "@/components/tools/dev-tools"
+import { DiceRoller } from "@/components/tools/dice"
 import { CipherTool } from "@/components/tools/engines/cipher-tool"
 import { CodeFormatter } from "@/components/tools/engines/code-formatter"
 import { DataTable } from "@/components/tools/engines/data-table"
@@ -33,6 +39,8 @@ import { TextTransform } from "@/components/tools/engines/text-transform"
 import { UnitConverter } from "@/components/tools/engines/unit-converter"
 import {
   AsciiConverter,
+  HexCodec,
+  HtmlEntityCodec,
   UnicodeCodec,
   UrlCodec,
 } from "@/components/tools/encoders"
@@ -46,6 +54,7 @@ import { FlagGallery } from "@/components/tools/flag-gallery"
 import {
   RandomNumberGenerator,
   SerialNumberGenerator,
+  UuidGenerator,
 } from "@/components/tools/generators"
 import { HashAvatar } from "@/components/tools/hash-avatar"
 import { ImageToBase64 } from "@/components/tools/image-to-base64"
@@ -55,6 +64,16 @@ import { PiQuery } from "@/components/tools/pi-query"
 import { QrCodeGenerator } from "@/components/tools/qr-code"
 import { RandomPasswordGenerator } from "@/components/tools/random-password"
 import { ReplaceText } from "@/components/tools/replace-text"
+import {
+  DateDifference,
+  PercentageCalculator,
+} from "@/components/tools/study-tools"
+import {
+  LineNumbers,
+  LoremIpsum,
+  TextDedup,
+  WordCounter,
+} from "@/components/tools/text-tools"
 import { TimestampConverter } from "@/components/tools/timestamp-converter"
 import {
   areaShapes,
@@ -72,6 +91,7 @@ import {
   capitalData,
   childClotheSizeData,
   dressSizeData,
+  httpStatusData,
   manClothingSizeData,
   manPantSizeData,
   paperSizeData,
@@ -134,6 +154,10 @@ export const toolComponents: Record<string, ComponentType> = {
   "office/mirror-text-generator": () => <TextTransform modes={mirrorModes} />,
   "office/reverse-text-generator": () => <TextTransform modes={reverseModes} />,
   "office/replace-text": ReplaceText,
+  "office/word-counter": WordCounter,
+  "office/text-dedup": TextDedup,
+  "office/line-numbers": LineNumbers,
+  "office/lorem-ipsum": LoremIpsum,
   "office/emoji": () => <SymbolPicker groups={emojiGroups} />,
   "office/emoticon": () => <SymbolPicker groups={emoticonGroups} />,
   "office/symbols": () => <SymbolPicker groups={symbolGroups} />,
@@ -180,6 +204,12 @@ export const toolComponents: Record<string, ComponentType> = {
   "code/text-to-ascii-converter": AsciiConverter,
   "code/unicode-encoder-decoder": UnicodeCodec,
   "code/compare-text": CompareText,
+  "code/json-format": JsonFormatter,
+  "code/jwt-decoder": JwtDecoder,
+  "code/regex-tester": RegexTester,
+  "code/hex-codec": HexCodec,
+  "code/html-entity": HtmlEntityCodec,
+  "code/http-status": () => <DataTable data={httpStatusData} />,
   "code/format-html": () => <CodeFormatter lang="html" />,
   "code/format-css": () => <CodeFormatter lang="css" />,
   "code/format-js": () => <CodeFormatter lang="js" />,
@@ -189,6 +219,7 @@ export const toolComponents: Record<string, ComponentType> = {
   "generate/serial-number": SerialNumberGenerator,
   "generate/qrcode": QrCodeGenerator,
   "generate/bar-code": BarCodeGenerator,
+  "generate/uuid": UuidGenerator,
   // 学习
   "study/length-converter": () => <UnitConverter {...lengthConfig} />,
   "study/area-converter": () => <UnitConverter {...areaConfig} />,
@@ -196,6 +227,8 @@ export const toolComponents: Record<string, ComponentType> = {
   "study/weight-converter": () => <UnitConverter {...weightConfig} />,
   "study/temperature-converter": () => <UnitConverter {...temperatureConfig} />,
   "study/proportion-calculator": ProportionCalculator,
+  "study/percentage": PercentageCalculator,
+  "study/date-diff": DateDifference,
   "study/perimeter-calculator": () => (
     <GeometryCalculator shapes={perimeterShapes} resultLabel="周长" />
   ),
@@ -231,6 +264,7 @@ export const toolComponents: Record<string, ComponentType> = {
   "ent/lucky-number": LuckyNumber,
   "ent/lucky-color": LuckyColor,
   "ent/hash-avatar": HashAvatar,
+  "ent/dice": DiceRoller,
 }
 
 export function ToolRenderer({ toolKey }: { toolKey: string }) {

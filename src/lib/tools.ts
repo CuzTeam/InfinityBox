@@ -247,6 +247,34 @@ export const tools: Tool[] = [
     keywords: ["替换", "查找", "正则"],
   },
   {
+    slug: "word-counter",
+    category: "office",
+    name: "字数统计",
+    description: "统计字符、单词、汉字、行数与段落数",
+    keywords: ["字数统计", "字符数", "word count"],
+  },
+  {
+    slug: "text-dedup",
+    category: "office",
+    name: "文本去重与排序",
+    description: "按行去重，可选排序与去除空行",
+    keywords: ["去重", "排序", "文本处理"],
+  },
+  {
+    slug: "line-numbers",
+    category: "office",
+    name: "行号添加器",
+    description: "为每行文本添加递增行号",
+    keywords: ["行号", "文本处理"],
+  },
+  {
+    slug: "lorem-ipsum",
+    category: "office",
+    name: "Lorem Ipsum 生成器",
+    description: "生成排版占位用的假文",
+    keywords: ["lorem ipsum", "占位文本", "假文"],
+  },
+  {
     slug: "emoji",
     category: "office",
     name: "Emoji 表情大全",
@@ -392,6 +420,48 @@ export const tools: Tool[] = [
     keywords: ["对比", "diff", "文本比较"],
   },
   {
+    slug: "json-format",
+    category: "code",
+    name: "JSON 格式化 / 压缩",
+    description: "校验 JSON 并美化或压缩",
+    keywords: ["JSON", "格式化", "压缩"],
+  },
+  {
+    slug: "jwt-decoder",
+    category: "code",
+    name: "JWT 解码器",
+    description: "解码 JWT 的 Header 与 Payload",
+    keywords: ["JWT", "解码", "token"],
+  },
+  {
+    slug: "regex-tester",
+    category: "code",
+    name: "正则表达式测试",
+    description: "测试正则并列出全部匹配与分组",
+    keywords: ["正则", "regex", "测试"],
+  },
+  {
+    slug: "hex-codec",
+    category: "code",
+    name: "Hex 编码解码",
+    description: "文本与十六进制编码互转",
+    keywords: ["Hex", "十六进制", "编码"],
+  },
+  {
+    slug: "html-entity",
+    category: "code",
+    name: "HTML 实体编码解码",
+    description: "HTML 特殊字符与实体互转",
+    keywords: ["HTML", "实体", "&amp;"],
+  },
+  {
+    slug: "http-status",
+    category: "code",
+    name: "HTTP 状态码查询",
+    description: "1xx-5xx 状态码含义速查",
+    keywords: ["HTTP", "状态码", "404"],
+  },
+  {
     slug: "format-html",
     category: "code",
     name: "HTML 格式化 / 压缩",
@@ -449,6 +519,13 @@ export const tools: Tool[] = [
     description: "CODE128、EAN-13 等条形码生成",
     keywords: ["条形码", "barcode"],
   },
+  {
+    slug: "uuid",
+    category: "generate",
+    name: "UUID 生成器",
+    description: "批量生成 UUID v4",
+    keywords: ["UUID", "GUID", "唯一标识"],
+  },
   // ---------- 学习 ----------
   {
     slug: "length-converter",
@@ -491,6 +568,20 @@ export const tools: Tool[] = [
     name: "比例计算器",
     description: "a:b = c:d 求解未知项",
     keywords: ["比例", "比值"],
+  },
+  {
+    slug: "percentage",
+    category: "study",
+    name: "百分比计算器",
+    description: "计算某数的百分比、占比与百分比变化",
+    keywords: ["百分比", "百分数", "%"],
+  },
+  {
+    slug: "date-diff",
+    category: "study",
+    name: "日期差计算器",
+    description: "计算两个日期之间的间隔",
+    keywords: ["日期差", "天数计算", "日期间隔"],
   },
   {
     slug: "perimeter-calculator",
@@ -668,6 +759,13 @@ export const tools: Tool[] = [
     name: "哈希头像生成器",
     description: "文本生成确定性几何头像",
     keywords: ["头像", "identicon"],
+  },
+  {
+    slug: "dice",
+    category: "ent",
+    name: "掷骰子",
+    description: "掷一组骰子，支持多种面数",
+    keywords: ["骰子", "dice", "桌游"],
   },
 ]
 

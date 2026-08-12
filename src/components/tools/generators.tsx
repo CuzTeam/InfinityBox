@@ -168,3 +168,76 @@ export function SerialNumberGenerator() {
     </Card>
   )
 }
+
+export function UuidGenerator() {
+  const [count, setCount] = useState("5")
+  const [uppercase, setUppercase] = useState(false)
+  const [noDash, setNoDash] = useState(false)
+  const [output, setOutput] = useState("")
+
+  const generate = () => {
+    const n = Math.min(Math.max(1, Number(count) || 1), 500)
+    const uuids = Array.from({ length: n }, () => {
+      let id = crypto.randomUUID()
+      if (noDash) id = id.replace(/-/g, "")
+      return uppercase ? id.toUpperCase() : id
+    })
+    setOutput(uuids.join("\n"))
+  }
+
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>UUID 生成器</CardTitle>
+        <CardDescription>批量生成 UUID v4</CardDescription>
+      </CardHeader>
+      <CardContent className="flex flex-col gap-4">
+        <FieldGroup>
+          <div className="flex flex-wrap items-end gap-6">
+            <Field className="w-32">
+              <FieldLabel htmlFor="uuid-count">生成数量</FieldLabel>
+              <Input
+                id="uuid-count"
+                type="number"
+                min={1}
+                max={500}
+                value={count}
+                onChange={(e) => setCount(e.target.value)}
+              />
+            </Field>
+            <Field orientation="horizontal">
+              <Switch
+                id="uuid-upper"
+                checked={uppercase}
+                onCheckedChange={setUppercase}
+              />
+              <FieldLabel htmlFor="uuid-upper">大写</FieldLabel>
+            </Field>
+            <Field orientation="horizontal">
+              <Switch
+                id="uuid-nodash"
+                checked={noDash}
+                onCheckedChange={setNoDash}
+              />
+              <FieldLabel htmlFor="uuid-nodash">去掉连字符</FieldLabel>
+            </Field>
+          </div>
+        </FieldGroup>
+        <Button onClick={generate} className="w-fit">
+          生成
+        </Button>
+        {output ? (
+          <FieldGroup>
+            <Field>
+              <div className="flex items-center justify-between">
+                <FieldLabel>结果</FieldLabel>
+                <CopyButton text={output} />
+              </div>
+              <Textarea rows={8} readOnly className="font-mono" value={output} />
+            </Field>
+          </FieldGroup>
+        ) : null}
+      </CardContent>
+    </Card>
+  )
+}

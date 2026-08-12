@@ -30,7 +30,7 @@ export function SiteHeader() {
                   {category.name}
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-md grid-cols-2 gap-0.5 p-1">
+                  <ul className="grid w-xl grid-cols-3 gap-0.5 p-1">
                     {getToolsByCategory(category.slug).map((tool) => (
                       <li key={tool.slug}>
                         <NavigationMenuLink
