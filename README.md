@@ -9,7 +9,7 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwindcss)](https://tailwindcss.com)
 [![License](https://img.shields.io/badge/License-AGPL--3.0-blue)](LICENSE)
 
-[在线预览](https://cuzteam.github.io/InfinityBox) · [提交工具需求](https://github.com/CuzTeam/InfinityBox/issues) · [参与贡献](#-参与贡献)
+[在线预览](https://box.cuz-lab.tech) · [提交工具需求](https://github.com/CuzTeam/InfinityBox/issues) · [参与贡献](#-参与贡献)
 
 </div>
 
